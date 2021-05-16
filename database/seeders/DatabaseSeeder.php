@@ -13,6 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $seeds[] = CreateDefaultUser::class; // UserSeeder::class;
+
+        if (config('app.env') != 'production') {
+            $seeds[] = BrandSeeder::class;
+            $seeds[] = CategorySeeder::class;
+            $seeds[] = ProductSeeder::class;
+        }
+
+        $this->call($seeds);
     }
 }

@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index(Request $request) {
         return Inertia::render('Products/IndexPage', [ 
-            'products' => Brand::orderBy('display_name')->get()->load('brand', 'category')
+            'products' => Product::orderBy('display_name')->get()->load('brand', 'category')
         ]);
     }
 
@@ -31,7 +31,7 @@ class ProductController extends Controller
             'display_name' => 'required|string|max:50|unique:products',
             'description' => 'required|string|max:60',
             'quantity' => 'required|integer|max:9999',
-            'price' => 'required|double|max:999999',
+            'price' => 'required|numeric|max:999999',
             'brand_id' => 'required',
             'category_id' => 'required',
         ])->validate();
