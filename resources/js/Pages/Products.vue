@@ -21,28 +21,33 @@
                             </table-header-item>
                         </template>
                         <template #body>
-                            <tr>
+                            <tr
+                                v-for="product in products"
+                                :key="product.code_id"
+                            >
                                 <table-body-item>
                                     <div class="text-sm text-gray-900">
-                                        Lapíz
+                                        {{ product.display_name }}
                                     </div>
                                 </table-body-item>
                                 <table-body-item>
                                     <div class="text-sm text-gray-900">
-                                        Un lapíz fabuloso
-                                    </div>
-                                </table-body-item>
-                                <table-body-item>
-                                    <div class="text-sm text-gray-900">1</div>
-                                </table-body-item>
-                                <table-body-item>
-                                    <div class="text-sm text-gray-900">
-                                        Faber Castell
+                                        {{ product.description }}
                                     </div>
                                 </table-body-item>
                                 <table-body-item>
                                     <div class="text-sm text-gray-900">
-                                        Utiles
+                                        {{ product.quantity }}
+                                    </div>
+                                </table-body-item>
+                                <table-body-item>
+                                    <div class="text-sm text-gray-900">
+                                        {{ product.brand.display_name }}
+                                    </div>
+                                </table-body-item>
+                                <table-body-item>
+                                    <div class="text-sm text-gray-900">
+                                        {{ product.category.display_name }}
                                     </div>
                                 </table-body-item>
                                 <table-body-item>
@@ -68,11 +73,18 @@ import TableHeaderItem from "@/components/table/TableHeaderItem";
 import TableBodyItem from "@/components/table/TableBodyItem";
 
 export default {
+    props: {
+        products: Array,
+    },
     components: {
         AppLayout,
         TableContainer,
         TableHeaderItem,
         TableBodyItem,
+    },
+    created: function () {
+        // `this` hace referencia a la instancia vm
+        console.log("a es: ", this.products);
     },
 };
 </script>

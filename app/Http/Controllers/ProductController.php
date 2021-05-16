@@ -11,6 +11,7 @@ class ProductController extends Controller
 {
     public function index() {
         $products = Product::all();
+        $products->load('brand', 'category');
         return Inertia::render('Products', [
             'products' => $products
         ]);
