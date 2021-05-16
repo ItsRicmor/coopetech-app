@@ -12,6 +12,6 @@ class ProductController extends Controller
         $products = Product::all();
         $products->load('brand', 'category');
 
-        return Inertia::render('Products', [ 'products' => $products ]);
+        return Inertia::render('Products/IndexPage', [ 'products' => $products ]);
     }
 }
