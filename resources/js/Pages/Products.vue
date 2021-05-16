@@ -11,20 +11,27 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <table-container>
                         <template #header>
+                            <table-header-item hidden>
+                                <span class="sr-only">Edit</span>
+                            </table-header-item>
                             <table-header-item>Nombre</table-header-item>
                             <table-header-item>Descriptión</table-header-item>
                             <table-header-item>Cantidad</table-header-item>
                             <table-header-item>Marca</table-header-item>
                             <table-header-item>Categoria</table-header-item>
-                            <table-header-item hidden>
-                                <span class="sr-only">Edit</span>
-                            </table-header-item>
                         </template>
                         <template #body>
                             <tr
                                 v-for="product in products"
                                 :key="product.code_id"
                             >
+                                <table-body-item>
+                                    <a
+                                        href="#"
+                                        class="text-indigo-600 hover:text-indigo-900"
+                                        >Edit</a
+                                    >
+                                </table-body-item>
                                 <table-body-item>
                                     <div class="text-sm text-gray-900">
                                         {{ product.display_name }}
@@ -49,13 +56,6 @@
                                     <div class="text-sm text-gray-900">
                                         {{ product.category.display_name }}
                                     </div>
-                                </table-body-item>
-                                <table-body-item>
-                                    <a
-                                        href="#"
-                                        class="text-indigo-600 hover:text-indigo-900"
-                                        >Edit</a
-                                    >
                                 </table-body-item>
                             </tr>
                         </template>
