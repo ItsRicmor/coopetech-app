@@ -12,8 +12,11 @@ use App\Models\Category;
 class ProductController extends Controller
 {
     public function index(Request $request) {
+        $products = Product::orderBy('display_name')->paginate(10);
+        $products->load('brand', 'category');
+
         return Inertia::render('Products/IndexPage', [ 
-            'products' => Product::orderBy('display_name')->get()->load('brand', 'category')
+            'products' => $products
         ]);
     }
 
@@ -79,7 +82,7 @@ class ProductController extends Controller
   
         if ($request->has('id')) {
             $product = Product::find($request->input('id'));
-            
+
             $product->update([
                 'code_id' => $request->code_id,
                 'display_name' => $request->display_name,
