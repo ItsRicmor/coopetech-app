@@ -26,9 +26,9 @@
                             <table-header-item v-for="header in headers" :key="header.id">{{header}}</table-header-item>
                         </template>
                         <template #body>
-                            <tr v-for="product in products" :key="product.id">
+                            <tr v-for="product in products" :key="product.id" class="hover:bg-gray-100" @dblclick="edit(product)">
                                 <table-body-item class="text-indigo-600 hover:text-indigo-900">
-                                    <a href="#">Edit</a>
+                                    <a @click="edit(product)" href="#">Edit</a>
                                 </table-body-item>
 
                                 <table-body-item class="text-sm text-gray-900">{{ product.display_name }}</table-body-item>
@@ -63,8 +63,8 @@ export default {
 
     data() {
         return { 
-            headers:['Nombre','Cantidad','Marca','Categoria']
-        }
+            headers:['Nombre','Cantidad','Marca','Categoria'],
+        };
     },
 
     created: function () {
@@ -74,8 +74,11 @@ export default {
 
     methods: {
         create () {
-            this.$inertia.visit(route('products.create'))
+            this.$inertia.visit(route('products.create'));
         },
-    }
+        edit(product){
+            this.$inertia.visit('/products/' + product.name_slug + '/edit')
+        },
+    },
 };
 </script>
