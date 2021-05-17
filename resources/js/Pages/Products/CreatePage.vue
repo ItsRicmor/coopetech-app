@@ -26,56 +26,14 @@
 
         <div class="flex flex-col">
             <div
-                class="lg:flex md:flex items-end justify-center min-h-screen pt-4 px-4 text-center sm:block sm:p-0"
+                class="lg:flex md:flex items-end justify-center pt-4 px-4 text-center sm:block sm:p-0"
             >
                 <div
-                    class="lg:inline-block align-top bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                    class="lg:inline-block align-top bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full md:w-4/5"
                 >
-                    <div class="form-inline mb-5">
-                        <inertia-link
-                            :href="route('products.index')"
-                            class="ml-3 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-4 h-4 mr-2"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                                />
-                            </svg>
-                            <span>Volver</span>
-                        </inertia-link>
-                        <button
-                            wire:click.prevent="store()"
-                            @click="save(product)"
-                            class="ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-4 h-4 mr-2"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                                />
-                            </svg>
-                            <span>Guardar</span>
-                        </button>
-                    </div>
-
-                    <form class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <form
+                        class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+                    >
                         <input-form
                             id="code_id"
                             title="Codigo"
@@ -103,6 +61,7 @@
                         <input-form
                             id="quantity"
                             title="Cantidad"
+                            type="number"
                             :error="$page.props.errors.quantity"
                             v-model:modelValue="product.quantity"
                             placeholder="Ingrese la cantidad del producto"
@@ -111,6 +70,7 @@
                         <input-form
                             id="price"
                             title="Precio"
+                            type="number"
                             :error="$page.props.errors.price"
                             v-model:modelValue="product.price"
                             placeholder="Ingrese el precio del producto"
@@ -153,6 +113,49 @@
                             </option>
                         </select-form>
                     </form>
+                    <div class="mb-5 flex justify-items-end">
+                        <inertia-link
+                            :href="route('products.index')"
+                            class="ml-3 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-4 h-4 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                                />
+                            </svg>
+                            <span>Volver</span>
+                        </inertia-link>
+                        <button
+                            wire:click.prevent="store()"
+                            @click="save(product)"
+                            class="ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-4 h-4 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                                />
+                            </svg>
+                            <span>Guardar</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -23270,16 +23270,34 @@ var _hoisted_2 = {
   "class": "flex flex-col"
 };
 var _hoisted_3 = {
-  "class": "lg:flex md:flex items-end justify-center min-h-screen pt-4 px-4 text-center sm:block sm:p-0"
+  "class": "lg:flex md:flex items-end justify-center pt-4 px-4 text-center sm:block sm:p-0"
 };
 var _hoisted_4 = {
-  "class": "lg:inline-block align-top bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+  "class": "lg:inline-block align-top bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full md:w-4/5"
 };
 var _hoisted_5 = {
-  "class": "form-inline mb-5"
+  "class": "px-4 pt-5 pb-4 sm:p-6 sm:pb-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+  value: null,
+  "class": "text-gray-400"
+}, " Seleccione una marca ", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
+  value: null,
+  "class": "text-gray-400"
+}, " Seleccione una categoria ", -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
+  "class": "mb-5 flex justify-items-end"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "w-4 h-4 mr-2",
   fill: "none",
@@ -23294,11 +23312,11 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Volver", -1
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Volver", -1
 /* HOISTED */
 );
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "w-4 h-4 mr-2",
   fill: "none",
@@ -23313,34 +23331,16 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Guardar", -1
-/* HOISTED */
-);
-
-var _hoisted_10 = {
-  "class": "px-4 pt-5 pb-4 sm:p-6 sm:pb-4"
-};
-
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
-  value: null,
-  "class": "text-gray-400"
-}, " Seleccione una marca ", -1
-/* HOISTED */
-);
-
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("option", {
-  value: null,
-  "class": "text-gray-400"
-}, " Seleccione una categoria ", -1
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Guardar", -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
-
   var _component_input_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("input-form");
 
   var _component_select_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("select-form");
+
+  var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
 
@@ -23349,30 +23349,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-        href: _ctx.route('products.index'),
-        "class": "ml-3 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_6, _hoisted_7];
-        }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-        "wire:click.prevent": "store()",
-        onClick: _cache[1] || (_cache[1] = function ($event) {
-          return $options.save($data.product);
-        }),
-        "class": "ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
-      }, [_hoisted_8, _hoisted_9])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_form, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_form, {
         id: "code_id",
         title: "Codigo",
         error: _ctx.$page.props.errors.code_id,
         modelValue: $data.product.code_id,
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $data.product.code_id = $event;
         }),
         placeholder: "Ingrese el código del producto",
@@ -23384,7 +23366,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         title: "Nombre",
         error: _ctx.$page.props.errors.display_name,
         modelValue: $data.product.display_name,
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $data.product.display_name = $event;
         }),
         placeholder: "Ingrese el nombre del producto",
@@ -23396,7 +23378,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         title: "Descripción",
         error: _ctx.$page.props.errors.description,
         modelValue: $data.product.description,
-        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $data.product.description = $event;
         }),
         placeholder: "Ingrese el descripción del producto",
@@ -23406,9 +23388,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       , ["error", "modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_form, {
         id: "quantity",
         title: "Cantidad",
+        type: "number",
         error: _ctx.$page.props.errors.quantity,
         modelValue: $data.product.quantity,
-        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.product.quantity = $event;
         }),
         placeholder: "Ingrese la cantidad del producto",
@@ -23418,9 +23401,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       , ["error", "modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_input_form, {
         id: "price",
         title: "Precio",
+        type: "number",
         error: _ctx.$page.props.errors.price,
         modelValue: $data.product.price,
-        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
           return $data.product.price = $event;
         }),
         placeholder: "Ingrese el precio del producto",
@@ -23432,13 +23416,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         title: "Marca",
         error: _ctx.$page.props.errors.brand_id,
         modelValue: $data.product.brand_id,
-        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
+        "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
           return $data.product.brand_id = $event;
         }),
         legend: "Seleccionar de la lista de marcas"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_11, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.brands, function (brand) {
+          return [_hoisted_6, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.brands, function (brand) {
             return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("option", {
               key: brand.id,
               value: brand.id
@@ -23459,13 +23443,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         title: "Categoría",
         error: _ctx.$page.props.errors.category_id,
         modelValue: $data.product.category_id,
-        "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+        "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
           return $data.product.category_id = $event;
         }),
         legend: "Seleccionar de la lista de categorías"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_12, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.categories, function (category) {
+          return [_hoisted_7, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.categories, function (category) {
             return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("option", {
               key: category.id,
               value: category.id
@@ -23481,7 +23465,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["error", "modelValue"])])])])])];
+      , ["error", "modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+        href: _ctx.route('products.index'),
+        "class": "ml-3 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_9, _hoisted_10];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+        "wire:click.prevent": "store()",
+        onClick: _cache[8] || (_cache[8] = function ($event) {
+          return $options.save($data.product);
+        }),
+        "class": "ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
+      }, [_hoisted_11, _hoisted_12])])])])])];
     }),
     _: 1
     /* STABLE */
