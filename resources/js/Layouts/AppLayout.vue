@@ -18,19 +18,11 @@
                             </div>
 
                             <!-- Navigation Links -->
-                            <div
-                                class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
-                            >
-                                <jet-nav-link
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
-                                >
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </jet-nav-link>
-                                <jet-nav-link
-                                    :href="route('products')"
-                                    :active="route().current('products')"
-                                >
+                                <jet-nav-link :href="route('products.index')" :active="route().current('products.index') || route().current('products.create')">
                                     Productos
                                 </jet-nav-link>
                             </div>
@@ -313,6 +305,12 @@
                             :active="route().current('dashboard')"
                         >
                             Dashboard
+                        </jet-responsive-nav-link>
+                        <jet-responsive-nav-link
+                            :href="route('products.index')"
+                            :active="route().current('products.index') || route().current('products.create')"
+                        >
+                            Productos
                         </jet-responsive-nav-link>
                     </div>
 
