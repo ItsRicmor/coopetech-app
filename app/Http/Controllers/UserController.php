@@ -11,8 +11,9 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function index(Request $request) {
+        $users = User::orderBy('updated_at', 'DESC')->paginate(10);
         return Inertia::render('Users/IndexPage', [ 
-            'users' => User::orderBy('updated_at', 'DESC')->get()
+            'users' => $users,
         ]);
     }
 

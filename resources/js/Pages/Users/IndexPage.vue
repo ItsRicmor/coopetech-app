@@ -29,7 +29,7 @@
                             <table-header-item v-for="header in headers" :key="header.id">{{ header }}</table-header-item>
                         </template>
                         <template #body>
-                            <tr v-for="user in users" :key="user.id">
+                            <tr v-for="user in users.data" :key="user.id">
                                 <table-body-item class="text-indigo-600 hover:text-indigo-900">
                                     <a href="#">Edit</a>
                                 </table-body-item>
@@ -39,6 +39,25 @@
                             </tr>
                         </template>
                     </table-container>
+                    <div class="bg-white px-4 py-3 shadow-xl flex items-center justify-between border-t border-gray-200">
+                        <nav class="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
+                            <span v-for="link in users.links" :key="link.id">
+                                <inertia-link
+                                    :href="link.url != null ? link.url : '#'"
+                                    :class="pages(link.active)"
+                                    class="transition duration-150 ease-in-out focus:outline-none inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5"
+                                    preserve-state
+                                    as="button"
+                                    type="button"
+                                    >{{ link.label }}</inertia-link
+                                >
+                            </span>
+                        </nav>
+                        <p class="text-xs text-gray-400">
+                            Mostrando <span class="font-medium">{{ users.from }}</span> a <span class="font-medium">{{ users.to }}</span> de
+                            <span class="font-medium">{{ users.total }}</span> resultados
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,6 +90,11 @@ export default {
     methods: {
         create() {
             this.$inertia.visit(route('users.create'))
+        },
+        pages(active) {
+            return active
+                ? 'border-yellow-200 text-gray-900 focus:border-yellow-400'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:text-gray-700 focus:border-gray-300'
         }
     }
 }
