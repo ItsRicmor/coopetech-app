@@ -1,21 +1,17 @@
 <template functional>
     <app-layout>
         <template #header v-once>
-            <div>
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight inline-flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                    </svg>
-                    <span>Creación de Productos</span>
-                </h2>
-            </div>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight inline-flex items-center">
+                <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                <span>Edición de Productos</span>
+            </h2>
         </template>
 
         <div class="flex flex-col">
-            <div class="lg:flex md:flex items-end justify-center pt-4 px-4 text-center sm:block sm:p-0">
-                <div
-                    class="lg:inline-block align-top bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full md:w-4/5"
-                >
+            <div class="lg:flex md:flex items-end justify-center pt-4 px-4 text-center sm:block sm:p-0" >
+                <div class="lg:inline-block align-top bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full md:w-4/5">
                     <form class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                         <input-form
                             id="code_id"
@@ -66,8 +62,14 @@
                             v-model:modelValue="product.brand_id"
                             legend="Seleccionar de la lista de marcas"
                         >
-                            <option :value="null" class="text-gray-400">Seleccione una marca</option>
-                            <option v-for="brand in brands" :key="brand.id" :value="brand.id">
+                            <option :value="null" class="text-gray-400">
+                                Seleccione una marca
+                            </option>
+                            <option
+                                v-for="brand in brands"
+                                :key="brand.id"
+                                :value="brand.id"
+                            >
                                 {{ brand.display_name }}
                             </option>
                         </select-form>
@@ -78,28 +80,51 @@
                             v-model:modelValue="product.category_id"
                             legend="Seleccionar de la lista de categorías"
                         >
-                            <option :value="null" class="text-gray-400">Seleccione una categoria</option>
-                            <option v-for="category in categories" :key="category.id" :value="category.id">
+                            <option :value="null" class="text-gray-400">
+                                Seleccione una categoria
+                            </option>
+                            <option
+                                v-for="category in categories"
+                                :key="category.id"
+                                :value="category.id"
+                            >
                                 {{ category.display_name }}
                             </option>
                         </select-form>
                     </form>
-                    <div class="mb-5 flex justify-items-end">
+                    <div class="mb-5 flex float-right mr-5">
                         <inertia-link
                             :href="route('products.index')"
                             class="ml-3 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-4 h-4 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                                />
                             </svg>
                             <span>Volver</span>
                         </inertia-link>
                         <button
                             wire:click.prevent="store()"
-                            @click="save(product)"
+                            @click="update(product)"
                             class="ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded inline-flex items-center"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-4 h-4 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
                                 <path
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
@@ -117,38 +142,27 @@
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout'
-import InputForm from '@/components/inputs/InputForm'
-import SelectForm from '@/components/inputs/SelectForm'
+import AppLayout from "@/Layouts/AppLayout";
+import InputForm from "@/components/inputs/InputForm";
+import SelectForm from "@/components/inputs/SelectForm";
 export default {
     props: {
+        product: Array,
         brands: Array,
-        categories: Array
+        categories: Array,
     },
     components: {
         AppLayout,
         InputForm,
-        SelectForm
+        SelectForm,
     },
 
-    data() {
-        return {
-            product: {
-                code_id: null,
-                display_name: null,
-                description: null,
-                quantity: null,
-                price: null,
-                brand_id: null,
-                category_id: null
-            }
-        }
-    },
     methods: {
-        save(product) {
-            product.name_slug = product.display_name ? product.display_name.replace(/ /g, '_').toLowerCase() : ''
-            this.$inertia.post(route('products.index'), product)
-        }
-    }
-}
+        update(product) {
+            product.name_slug = product.display_name ? product.display_name.replace(/ /g, "_").toLowerCase() : "";
+            product._method = 'PUT';
+            this.$inertia.post('/products/' + product.id, product)
+        },
+    },
+};
 </script>
