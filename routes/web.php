@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -23,5 +24,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::resources([
         'products' => ProductController::class,
+    ]);
+    Route::resources([
+        'users' => UserController::class,
     ]);
 });

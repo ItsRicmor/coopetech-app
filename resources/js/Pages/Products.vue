@@ -82,9 +82,5 @@ export default {
         TableHeaderItem,
         TableBodyItem,
     },
-    created: function () {
-        // `this` hace referencia a la instancia vm
-        console.log("a es: ", this.products);
-    },
 };
 </script>
