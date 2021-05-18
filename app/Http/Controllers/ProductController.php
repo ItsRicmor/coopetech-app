@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index(Request $request) {
         return Inertia::render('Products/IndexPage', [ 
-            'products' => Product::orderBy('display_name')->get()->load('brand', 'category')
+            'products' => Product::orderBy('updated_at', 'DESC')->get()->load('brand', 'category')
         ]);
     }
 
