@@ -39,25 +39,7 @@
                             </tr>
                         </template>
                     </table-container>
-                    <div class="bg-white px-4 py-3 shadow-xl flex items-center justify-between border-t border-gray-200">
-                        <nav class="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
-                            <span v-for="link in users.links" :key="link.id">
-                                <inertia-link
-                                    :href="link.url != null ? link.url : '#'"
-                                    :class="pages(link.active)"
-                                    class="transition duration-150 ease-in-out focus:outline-none inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5"
-                                    preserve-state
-                                    as="button"
-                                    type="button"
-                                    >{{ link.label }}</inertia-link
-                                >
-                            </span>
-                        </nav>
-                        <p class="text-xs text-gray-400">
-                            Mostrando <span class="font-medium">{{ users.from }}</span> a <span class="font-medium">{{ users.to }}</span> de
-                            <span class="font-medium">{{ users.total }}</span> resultados
-                        </p>
-                    </div>
+                    <model-paginator :model="users" />
                 </div>
             </div>
         </div>
@@ -69,6 +51,7 @@ import AppLayout from '@/Layouts/AppLayout'
 import TableContainer from '@/components/table/TableContainer'
 import TableHeaderItem from '@/components/table/TableHeaderItem'
 import TableBodyItem from '@/components/table/TableBodyItem'
+import ModelPaginator from '@/components/paginator/ModelPaginator'
 
 export default {
     props: {
@@ -78,7 +61,8 @@ export default {
         AppLayout,
         TableContainer,
         TableHeaderItem,
-        TableBodyItem
+        TableBodyItem,
+        ModelPaginator
     },
 
     data() {
