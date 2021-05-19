@@ -15,7 +15,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                     </svg>
-                    <span>Productos</span>
+                    <span>Usuarios</span>
                 </h2>
             </div>
         </template>
@@ -29,19 +29,17 @@
                             <table-header-item v-for="header in headers" :key="header.id">{{ header }}</table-header-item>
                         </template>
                         <template #body>
-                            <tr v-for="product in products.data" :key="product.id" class="hover:bg-gray-100" @dblclick="edit(product)">
+                            <tr v-for="user in users.data" :key="user.id">
                                 <table-body-item class="text-indigo-600 hover:text-indigo-900">
-                                    <a @click="edit(product)" href="#">Edit</a>
+                                    <a href="#">Edit</a>
                                 </table-body-item>
 
-                                <table-body-item class="text-sm text-gray-900">{{ product.display_name }}</table-body-item>
-                                <table-body-item class="text-sm text-gray-900">{{ product.quantity }}</table-body-item>
-                                <table-body-item class="text-sm text-gray-900">{{ product.brand.display_name }}</table-body-item>
-                                <table-body-item class="text-sm text-gray-900">{{ product.category.display_name }}</table-body-item>
+                                <table-body-item class="text-sm text-gray-900">{{ user.name }}</table-body-item>
+                                <table-body-item class="text-sm text-gray-900">{{ user.email }}</table-body-item>
                             </tr>
                         </template>
                     </table-container>
-                    <model-paginator :model="products" />
+                    <model-paginator :model="users" />
                 </div>
             </div>
         </div>
@@ -57,7 +55,7 @@ import ModelPaginator from '@/components/paginator/ModelPaginator'
 
 export default {
     props: {
-        products: Array
+        users: Array
     },
     components: {
         AppLayout,
@@ -69,16 +67,13 @@ export default {
 
     data() {
         return {
-            headers: ['Nombre', 'Cantidad', 'Marca', 'Categoria']
+            headers: ['Nombre', 'email']
         }
     },
 
     methods: {
         create() {
-            this.$inertia.visit(route('products.create'))
-        },
-        edit(product) {
-            this.$inertia.visit('/products/' + product.name_slug + '/edit')
+            this.$inertia.visit(route('users.create'))
         },
         pages(active) {
             return active
