@@ -10,8 +10,12 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    final $paginate = 10;
+    final $orderBy = 'display_name';
+    final $direction = 'DESC';
+
     public function index(Request $request) {
-        $users = User::orderBy('updated_at', 'DESC')->paginate(10);
+        $users = User::orderBy($this->orderBy, $this->direction)->paginate($this->paginate);
         return Inertia::render('Users/IndexPage', [ 
             'users' => $users,
         ]);

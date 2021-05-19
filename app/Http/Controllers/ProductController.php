@@ -11,8 +11,12 @@ use App\Models\Category;
 
 class ProductController extends Controller
 {
+    final $paginate = 10;
+    final $orderBy = 'display_name';
+    final $direction = 'DESC';
+
     public function index(Request $request) {
-        $products = Product::orderBy('updated_at', 'DESC')->paginate(10);
+        $products = Product::orderBy($this->orderBy, $this->direction)->paginate($this->paginate);
         $products->load('brand', 'category');
 
         return Inertia::render('Products/IndexPage', [ 
